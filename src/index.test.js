@@ -1,11 +1,16 @@
 const { add } = require('./index');
 
-test('add 1 + 2 to equal 3', () => {
-  expect(add(1, 2)).toBe(3);
+test('add 2 - 1 to equal 1', () => {
+  expect(add(2, 1)).toBe(1);
 });
 
-test('adds 5 + 7 to equal 12', () => {
-  expect(add(5, 7)).toBe(12);
+test('adds 7 - 5 to equal 2', () => {
+  expect(add(7, 5)).toBe(2);
+});
+
+
+test('adds 9 - 1 to equal 8', () => {
+  expect(add(9, 1)).toBe(8);
 });
 
 
