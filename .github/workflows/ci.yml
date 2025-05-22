@@ -2,15 +2,15 @@ name: Node.js CI
 
 on:
   push:
-    branches: ["main"]
+    branches: [ "main" ]
   pull_request:
-    branches: ["main"]
+    branches: [ "main" ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3   # Verifica que el código se esté extrayendo correctamente
 
       - name: Use Node.js
         uses: actions/setup-node@v3
@@ -18,7 +18,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci   # Instala las dependencias de manera más confiable para CI
+
+      - name: Give execute permission to Jest binary
+        run: chmod +x ./node_modules/.bin/jest   # Garantiza que Jest pueda ejecutarse
 
       - name: Run tests
-        run: npm test
+        run: npm test   # Ejecuta los tests con Jest
